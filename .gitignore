@@ -14,3 +14,10 @@
 !/tmp/.keep
 
 .byebug_history
+npm-debug.log
+node_modules/
+public/bundle.js
+public/index.bundle.js
+public/*.html
+
+
