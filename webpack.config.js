@@ -58,6 +58,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({template: './frontend/entry.ejs', inject: false}),
-        new HtmlWebpackPlugin({template: './frontend/entry.ejs', inject: false, filename: 'index.html'})
+        new HtmlWebpackPlugin({template: './frontend/entry.ejs', inject: false, filename: 'index.html'}),
+        new HtmlWebpackPlugin({template: './frontend/entry.ejs', inject: false, filename: 'admin.html'})
     ]
 };
