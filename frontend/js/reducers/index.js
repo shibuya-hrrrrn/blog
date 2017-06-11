@@ -1,1 +1,1 @@
-
+export article from './article'

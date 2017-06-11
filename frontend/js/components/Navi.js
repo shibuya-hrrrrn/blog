@@ -18,6 +18,10 @@ class Navi extends Component {
     return (
       <div>
       navi
+      <br />
+      <Link to="/test">test</Link>
+      <br />
+      <div style={{ marginTop: '5em' }}>{this.props.children}</div>
       </div>
     )
   }
