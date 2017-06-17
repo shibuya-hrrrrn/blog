@@ -18,6 +18,19 @@ export function addArticle(param) {
   }
 }
 
+export function getArticles() {
+  return function(dispatch) {
+    return axios.get('/articles.json')
+      .then(function(response) {
+        dispatch(receiveData(response.data));
+      })
+      .catch(function(res){
+        dispatch(receiveError(res));
+      })
+  }
+}
+
+
 function receiveData(json) {
   return {
     type: types.RECV_ARTICLE_DATA,
@@ -29,6 +42,13 @@ function receiveError(json) {
   alert(json.exception)
   return {
     type: types.RECV_ARTICLE_ERROR,
+    data: json
+  }
+}
+
+function receiveSingleData(json) {
+  return {
+    type: types.RECV_SINGLE_ARTICLE_DATA,
     data: json
   }
 }
