@@ -60,6 +60,7 @@ module.exports = {
         new HtmlWebpackPlugin({template: './frontend/entry.ejs', inject: false}),
         new HtmlWebpackPlugin({template: './frontend/entry.ejs', inject: false, filename: 'index.html'}),
         new HtmlWebpackPlugin({template: './frontend/entry.ejs', inject: false, filename: 'admin.html'}),
+        new HtmlWebpackPlugin({template: './frontend/entry.ejs', inject: false, filename: 'edit.html'}),
         new HtmlWebpackPlugin({template: './frontend/entry.ejs', inject: false, filename: 'articles.html'})
     ]
 };
