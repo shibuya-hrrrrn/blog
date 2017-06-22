@@ -7,7 +7,7 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { reducer as formReducer } from 'redux-form'
 
 import * as reducers from './reducers'
-import { Navi, Test, ArticleInput, Articles } from './components'
+import { Navi, Test, Articles, CreateArticleMain, EditArticleMain } from './components'
 
 import thunk from 'redux-thunk'
 
@@ -34,7 +34,8 @@ ReactDOM.render(
       <Router history={history}>
         <Route path="/" component={Navi}>
           <Route path="/test" component={Test}/>
-          <Route path="/admin.html" component={ArticleInput}/>
+          <Route path="/admin.html" component={CreateArticleMain}/>
+          <Route path="/edit.html" component={EditArticleMain}/>
           <Route path="/articles.html" component={Articles}/>
         </Route>
       </Router>

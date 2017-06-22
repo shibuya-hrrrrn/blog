@@ -34,8 +34,9 @@ class Articles extends Component{
                   a =>
                   <tr key={a.id}>
                     <td>
+                      <a href={"/edit.html?articleid=" + a.id} target="_blank">
                       {a.title}<br />
-                    </td>
+                    </a></td>
                   </tr>
                 )
               }

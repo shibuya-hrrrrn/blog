@@ -11,14 +11,17 @@ class ArticleInput extends Component {
     this.doHandleSubmit = this.doHandleSubmit.bind(this)
   }
 
-  doHandleSubmit(param){
-    if (confirm("登録しますか")) {
-      this.props.actions.addArticle(param)
+  doHandleSubmit(param) {
+    if(this.props.article.id){
+       this.props.actions.updateArticle(param)
+    } else {
+       this.props.actions.addArticle(param)
     }
   }
 
+
   render() {
-    const { handleSubmit } = this.props
+    const { article, actions, handleSubmit } = this.props
 
     return (
       <div>
@@ -58,18 +61,11 @@ ArticleInput = reduxForm({
   enableReinitialize: true
 })(ArticleInput)
 
-function mapStateToProps(state) {
-  return {
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(Actions, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+ArticleInput = connect(
+  state => ({
+    user: state.article,
+    initialValues: state.article
+  })
 )(ArticleInput)
+
+export default ArticleInput

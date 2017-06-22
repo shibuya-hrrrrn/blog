@@ -2,6 +2,18 @@
 import * as types from '../constants'
 import axios from 'axios'
 
+export function getArticleData(id) {
+  return function(dispatch) {
+    return axios.get('/articles/' + id + '.json')
+      .then(function(response) {
+        dispatch(receiveSingleData(response.data));
+      })
+      .catch(function(res){
+        dispatch(receiveError(res))
+      })
+  }
+}
+
 export function addArticle(param) {
   return function(dispatch) {
     return axios.post('/articles.json', {
@@ -11,6 +23,22 @@ export function addArticle(param) {
       .then(function(response) {
         dispatch(reset('articleInput'))
         alert("登録しました")
+      })
+      .catch(function(res){
+        dispatch(receiveError(res))
+      })
+  }
+}
+
+export function updateArticle(param) {
+  return function(dispatch) {
+    return axios.patch('/articles/' + param.id +  '.json', {
+          title: param.title,
+          text: param.text
+      })
+      .then(function(response) {
+        dispatch(getArticleData(param.id))
+        alert("更新しました")
       })
       .catch(function(res){
         dispatch(receiveError(res))
